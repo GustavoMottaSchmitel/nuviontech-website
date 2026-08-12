@@ -1,96 +1,118 @@
 import type { Metadata, Viewport } from "next"
-import { Syne, DM_Sans } from "next/font/google"
-import Script from "next/script"
+import localFont from "next/font/local"
+import SiteHeader from "@/components/SiteHeader"
+import SiteFooter from "@/components/SiteFooter"
+import { INSTAGRAM_URL, SITE_URL } from "@/data/site"
 import "./globals.css"
 
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+const archivo = localFont({
+  src: "./Archivo-Variable.woff2",
+  variable: "--font-display",
   display: "swap",
 })
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+const manrope = localFont({
+  src: "./Manrope-Variable.woff2",
+  variable: "--font-body",
   display: "swap",
 })
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#050D1A",
-  colorScheme: "dark",
+  themeColor: "#07111c",
+  colorScheme: "dark light",
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "NuvionTech — Sites, Sistemas e Automações que Geram Resultados",
+    default: "NuvionTech — Estratégia, design e engenharia",
     template: "%s | NuvionTech",
   },
   description:
-    "Desenvolvemos sites, sistemas e automações com IA que transformam visitantes em clientes. Tecnologia de ponta para negócios que querem crescer no Espírito Santo e em todo o Brasil.",
-  keywords: [
-    "desenvolvimento web", "chatbot IA", "automação", "site empresarial",
-    "landing page", "sistemas personalizados", "Next.js", "React",
-    "TypeScript", "inteligência artificial", "ES", "Espírito Santo",
-  ],
-  authors: [{ name: "NuvionTech" }],
+    "Landing pages, sistemas sob medida e automações construídos em torno de problemas reais de negócio.",
+  applicationName: "NuvionTech",
+  authors: [{ name: "NuvionTech", url: SITE_URL }],
   creator: "NuvionTech",
   publisher: "NuvionTech",
-  metadataBase: new URL("https://www.nuviontech.com.br"),
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://www.nuviontech.com.br",
-    title: "NuvionTech — Sites, Sistemas e Automações que Geram Resultados",
-    description: "Desenvolvemos sites, sistemas e automações com IA para negócios que querem crescer.",
+    url: SITE_URL,
     siteName: "NuvionTech",
-    images: [{ url: "/logo.png", width: 1200, height: 630, alt: "NuvionTech" }],
+    title: "NuvionTech — Complexo por dentro. Claro para quem usa.",
+    description:
+      "Estratégia, design e engenharia para landing pages, sistemas e automações.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "NuvionTech — estratégia, design e engenharia",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NuvionTech — Desenvolvimento Web e IA",
-    description: "Soluções tecnológicas personalizadas para empresas",
-    images: ["/logo.png"],
+    title: "NuvionTech — Estratégia, design e engenharia",
+    description: "Landing pages, sistemas sob medida e automações.",
+    images: ["/opengraph-image"],
   },
   robots: {
-    index: true, follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
-  category: "technology",
+  icons: {
+    icon: "/icon",
+    apple: "/brand/nuvion-symbol.png",
+  },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "NuvionTech",
+      url: SITE_URL,
+      logo: `${SITE_URL}/brand/nuvion-symbol.png`,
+      founder: { "@type": "Person", name: "Gustavo Motta" },
+      sameAs: [INSTAGRAM_URL],
+      areaServed: { "@type": "Country", name: "Brasil" },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "NuvionTech",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: "pt-BR",
+    },
+  ],
+}
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-br" className="scroll-smooth">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <Script
-          id="structured-data"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              name: "NuvionTech",
-              description: "Desenvolvimento de soluções tecnológicas personalizadas para empresas",
-              url: "https://www.nuviontech.com.br",
-              telephone: "+5527997498818",
-              address: { "@type": "PostalAddress", addressRegion: "ES", addressCountry: "BR" },
-              contactPoint: { "@type": "ContactPoint", contactType: "customer service", telephone: "+5527997498818" },
-              areaServed: { "@type": "Country", name: "Brazil" },
-              serviceType: ["Web Development", "Chatbot Development", "Business Automation", "AI Integration"],
-            }),
-          }}
-        />
-      </head>
-      <body className={`${syne.variable} ${dmSans.variable} antialiased`}>
+    <html lang="pt-BR" className={`${archivo.variable} ${manrope.variable}`}>
+      <body>
+        <a className="skip-link" href="#conteudo">Ir para o conteúdo</a>
+        <SiteHeader />
         {children}
+        <SiteFooter />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+        />
       </body>
     </html>
   )

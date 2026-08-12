@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NuvionTech — site institucional 2026
 
-## Getting Started
+Reconstrução completa do site institucional da NuvionTech. O projeto posiciona o estúdio em três frentes — landing pages, sistemas sob medida e automação/IA — e usa quatro projetos reais como prova de trabalho.
 
-First, run the development server:
+## Stack
+
+- Next.js 16.3 / React 19
+- TypeScript
+- Tailwind CSS 4 como pipeline, com direção visual autoral em CSS
+- Fontes locais Archivo e Manrope
+- Playwright para QA visual responsivo
+
+## Comandos
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run typecheck
+npm run build
+npm run qa:visual
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`qa:visual` espera uma build de produção ativa em `http://127.0.0.1:3011`. Para usar outra URL, defina `QA_BASE_URL`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Exemplo local:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start -- --hostname 127.0.0.1 --port 3011
+# em outro terminal
+npm run qa:visual
+```
 
-## Learn More
+## Rotas
 
-To learn more about Next.js, take a look at the following resources:
+- `/`
+- `/projetos`
+- `/projetos/ata-crm`
+- `/projetos/ata-ponto`
+- `/projetos/ata-seguranca`
+- `/projetos/ata-acesso`
+- `/servicos/landing-pages`
+- `/servicos/sistemas-sob-medida`
+- `/servicos/automacao-e-ia`
+- `/sobre`
+- `/contato`
+- `/privacidade`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O projeto também gera `robots.txt`, `sitemap.xml`, manifest, ícone e imagem Open Graph.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Conteúdo e dados
 
-## Deploy on Vercel
+Conteúdo compartilhado, links e cases ficam em `data/site.ts`. Não publique claims de resultado, depoimentos, prazos ou disponibilidade sem validação documental.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Os screenshots atuais dos projetos são provas visuais dos sites no ar. Confirme autorização do cliente e recapture as URLs se houver atualizações antes da publicação.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Publicação
+
+Esta reconstrução foi feita no branch `rebuild/nuvion-site-2026`. O DNS existente não foi alterado. Antes do deploy:
+
+1. revisar o site local;
+2. confirmar autorização de uso dos cases ATA;
+3. confirmar se haverá e-mail institucional;
+4. conectar o projeto ao provedor atual;
+5. publicar primeiro em preview;
+6. somente depois promover para produção, preservando os registros de e-mail e DNS.
+
+Analytics e pixels não foram ativados sem IDs e consentimento. A política de privacidade reflete esse estado.

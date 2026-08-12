@@ -12,6 +12,11 @@
 
 # testing
 /coverage
+/qa/*.png
+/qa/responsive/*.png
+/.devserver.log
+/.prodserver.log
+/.prodserver.log.err
 
 # next.js
 /.next/
