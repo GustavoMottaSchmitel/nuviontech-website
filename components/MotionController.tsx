@@ -27,9 +27,6 @@ export default function MotionController() {
   const pathname = usePathname()
   const [paused, setPaused] = useState(false)
   const [hasActiveProject, setHasActiveProject] = useState(false)
-  const [reducedMotion, setReducedMotion] = useState(
-    () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-  )
 
   useEffect(() => {
     const root = document.documentElement
@@ -107,7 +104,6 @@ export default function MotionController() {
 
     const handleVisibility = () => root.classList.toggle("motion-page-hidden", document.hidden)
     const handleMediaChange = (event: MediaQueryListEvent) => {
-      setReducedMotion(event.matches)
       root.classList.toggle("motion-reduced", event.matches)
       if (event.matches) revealItems.forEach((item) => item.classList.add("is-visible"))
     }
@@ -134,8 +130,6 @@ export default function MotionController() {
     document.documentElement.classList.toggle("motion-paused", paused)
     return () => document.documentElement.classList.remove("motion-paused")
   }, [paused])
-
-  if (reducedMotion) return null
 
   return (
     <button
