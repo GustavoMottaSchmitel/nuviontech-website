@@ -2,6 +2,7 @@ export const SITE_URL = "https://www.nuviontech.com.br"
 export const INSTAGRAM_URL = "https://www.instagram.com/nuviontech.official/"
 export const FOUNDER_URL = "https://gustavo-motta.vercel.app"
 export const PHONE = "5527997498818"
+export const CONTACT_EMAIL = "gustavo.motta@nuviontech.com.br"
 
 export function whatsappUrl(origin = "site") {
   const message = `Olá! Cheguei à NuvionTech por meio de ${origin} e quero conversar sobre um projeto.`
@@ -114,6 +115,10 @@ export type CaseStudy = {
   liveUrl: string
   desktopPreview: string
   mobilePreview: string
+  desktopFull: string
+  mobileFull: string
+  desktopHeader: string
+  mobileHeader: string
   accent: string
   accentRgb: string
 }
@@ -137,6 +142,10 @@ export const cases: CaseStudy[] = [
     liveUrl: "https://crm.atasistemas.com.br",
     desktopPreview: "/cases/crm-desktop-preview.webp",
     mobilePreview: "/cases/crm-mobile-preview.webp",
+    desktopFull: "/cases/live/full/crm-desktop-full-v3.webp",
+    mobileFull: "/cases/live/full/crm-mobile-full-v3.webp",
+    desktopHeader: "/cases/live/headers/crm-desktop-header-v2.webp",
+    mobileHeader: "/cases/live/headers/crm-mobile-header-v2.webp",
     accent: "#7a5cff",
     accentRgb: "122, 92, 255",
   },
@@ -158,6 +167,10 @@ export const cases: CaseStudy[] = [
     liveUrl: "https://ponto.atasistemas.com.br",
     desktopPreview: "/cases/ponto-desktop-preview.webp",
     mobilePreview: "/cases/ponto-mobile-preview.webp",
+    desktopFull: "/cases/live/full/ponto-desktop-full-v3.webp",
+    mobileFull: "/cases/live/full/ponto-mobile-full-v3.webp",
+    desktopHeader: "/cases/live/headers/ponto-desktop-header-v2.webp",
+    mobileHeader: "/cases/live/headers/ponto-mobile-header-v2.webp",
     accent: "#ff6b35",
     accentRgb: "255, 107, 53",
   },
@@ -179,6 +192,10 @@ export const cases: CaseStudy[] = [
     liveUrl: "https://seguranca.atasistemas.com.br",
     desktopPreview: "/cases/seguranca-desktop-preview.webp",
     mobilePreview: "/cases/seguranca-mobile-preview.webp",
+    desktopFull: "/cases/live/full/seguranca-desktop-full-v3.webp",
+    mobileFull: "/cases/live/full/seguranca-mobile-full-v3.webp",
+    desktopHeader: "/cases/live/headers/seguranca-desktop-header-v2.webp",
+    mobileHeader: "/cases/live/headers/seguranca-mobile-header-v2.webp",
     accent: "#20d7ec",
     accentRgb: "32, 215, 236",
   },
@@ -200,6 +217,10 @@ export const cases: CaseStudy[] = [
     liveUrl: "https://acesso.atasistemas.com.br",
     desktopPreview: "/cases/acesso-desktop-preview.webp",
     mobilePreview: "/cases/acesso-mobile-preview.webp",
+    desktopFull: "/cases/live/full/acesso-desktop-full-v3.webp",
+    mobileFull: "/cases/live/full/acesso-mobile-full-v3.webp",
+    desktopHeader: "/cases/live/headers/acesso-desktop-header-v2.webp",
+    mobileHeader: "/cases/live/headers/acesso-mobile-header-v2.webp",
     accent: "#2f6dff",
     accentRgb: "47, 109, 255",
   },

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Brand from "./Brand"
 import ArrowIcon from "./ArrowIcon"
-import { FOUNDER_URL, INSTAGRAM_URL, whatsappUrl } from "@/data/site"
+import { CONTACT_EMAIL, FOUNDER_URL, INSTAGRAM_URL, whatsappUrl } from "@/data/site"
 
 export default function SiteFooter() {
   return (
@@ -21,6 +21,7 @@ export default function SiteFooter() {
         <div className="footer-column">
           <p>Conectar</p>
           <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Instagram <ArrowIcon diagonal /></a>
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL} <ArrowIcon diagonal /></a>
           <a href={FOUNDER_URL} target="_blank" rel="noopener noreferrer">Gustavo Motta <ArrowIcon diagonal /></a>
           <a href={whatsappUrl("rodapé do site")} target="_blank" rel="noopener noreferrer">WhatsApp <ArrowIcon diagonal /></a>
         </div>

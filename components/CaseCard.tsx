@@ -7,6 +7,7 @@ export default function CaseCard({ item, priority = false }: { item: CaseStudy; 
   return (
     <article
       className="case-card"
+      data-reveal="case"
       style={
         {
           "--case-accent": item.accent,
@@ -39,6 +40,10 @@ export default function CaseCard({ item, priority = false }: { item: CaseStudy; 
         <DeviceScene
           desktop={item.desktopPreview}
           mobile={item.mobilePreview}
+          desktopFull={item.desktopFull}
+          mobileFull={item.mobileFull}
+          desktopHeader={item.desktopHeader}
+          mobileHeader={item.mobileHeader}
           alt={`Landing page ${item.name}`}
           priority={priority}
         />

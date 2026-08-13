@@ -38,7 +38,7 @@ export default function ProjectsPage() {
       <section className="inner-section section--light">
         <div className="shell projects-index">
           <h2 className="sr-only">Cases da NuvionTech</h2>
-          {cases.map((item, index) => <CaseCard item={item} key={item.slug} priority={index === 0} />)}
+          {cases.map((item) => <CaseCard item={item} key={item.slug} />)}
         </div>
       </section>
       <ContactBand origin="página de projetos" />

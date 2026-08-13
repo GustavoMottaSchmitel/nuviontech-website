@@ -2,6 +2,8 @@
 
 Reconstrução completa do site institucional da NuvionTech. O projeto posiciona o estúdio em três frentes — landing pages, sistemas sob medida e automação/IA — e usa quatro projetos reais como prova de trabalho.
 
+As capturas completas percorrem os mockups quando cada case entra no viewport. Um controlador único mantém somente o case em foco ativo, oferece pausa global e respeita `prefers-reduced-motion`.
+
 ## Stack
 
 - Next.js 16.3 / React 19
@@ -56,13 +58,13 @@ Os screenshots atuais dos projetos são provas visuais dos sites no ar. Confirme
 
 ## Publicação
 
-Esta reconstrução foi feita no branch `rebuild/nuvion-site-2026`. O DNS existente não foi alterado. Antes do deploy:
+Esta reconstrução foi feita no branch `rebuild/nuvion-site-2026`. O DNS existente não foi alterado. O projeto está conectado ao GitHub e à Vercel; a publicação ocorre pelo branch `main`.
 
-1. revisar o site local;
-2. confirmar autorização de uso dos cases ATA;
-3. confirmar se haverá e-mail institucional;
-4. conectar o projeto ao provedor atual;
-5. publicar primeiro em preview;
-6. somente depois promover para produção, preservando os registros de e-mail e DNS.
+Antes de uma nova publicação:
+
+1. revisar o site local e executar os gates de QA;
+2. confirmar autorização de uso/atualização dos cases ATA;
+3. publicar no GitHub e acompanhar o status da Vercel;
+4. validar o domínio final sem alterar os registros de e-mail e DNS.
 
 Analytics e pixels não foram ativados sem IDs e consentimento. A política de privacidade reflete esse estado.

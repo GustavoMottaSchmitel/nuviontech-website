@@ -40,16 +40,21 @@ for (const target of targets) {
     const step = Math.max(300, Math.floor(innerHeight * 0.7))
     for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
       scrollTo(0, y)
-      await new Promise((resolve) => setTimeout(resolve, 45))
+      await new Promise((resolve) => setTimeout(resolve, 110))
     }
     scrollTo(0, 0)
     await new Promise((resolve) => setTimeout(resolve, 300))
   })
   await page.waitForLoadState("networkidle")
   await page.waitForFunction(
-    () => [...document.images].every((image) => image.complete && image.naturalWidth > 0),
+    () => [...document.images]
+      .filter((image) => {
+        const box = image.getBoundingClientRect()
+        return box.bottom > -innerHeight && box.top < innerHeight * 2
+      })
+      .every((image) => image.complete && image.naturalWidth > 0),
     undefined,
-    { timeout: 10_000 },
+    { timeout: 30_000 },
   )
   await page.screenshot({ path: path.join(outputDir, `${target.name}.png`), fullPage: target.fullPage })
   const state = await page.evaluate(() => ({

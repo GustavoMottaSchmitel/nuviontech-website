@@ -1,6 +1,6 @@
 # QA — reconstrução NuvionTech
 
-Data: 12/08/2026
+Data: 13/08/2026
 
 ## Verificações aprovadas
 
@@ -23,6 +23,14 @@ Data: 12/08/2026
 - aproximadamente 28 MB de assets antigos e sem uso removidos do pacote público
 - fontes locais convertidas de TTF para WOFF2, reduzindo o payload bruto de cerca de 805 KB para 99 KB
 - metadados Open Graph e Twitter específicos em páginas institucionais, serviços e cases
+- capturas longas reais dos quatro cases animadas dentro de notebook e celular
+- cabeçalhos dos projetos preservados durante a passagem das páginas
+- somente o case com maior área visível mantém suas duas telas em movimento
+- controle global pausa páginas, hero, grades, órbitas e sinais contínuos
+- hover, foco, aba oculta e preferência de movimento reduzido respeitados
+- retrato do fundador substituído por recorte centralizado e validado em home e Sobre
+- `gustavo.motta@nuviontech.com.br` confirmado na identidade ativa e publicado em Contato e rodapé
+- assinatura de e-mail renderizada em 320, 360 e 760 px, sem overflow e com a marca oficial carregada por HTTPS
 
 As evidências visuais estão em `qa/responsive/`. O script está em `scripts/visual-qa.mjs`.
 
@@ -36,8 +44,6 @@ As evidências visuais estão em `qa/responsive/`. O script está em `scripts/vi
 ## Pendências externas à implementação
 
 - confirmar autorização para exibir nomes e capturas dos quatro cases ATA;
-- confirmar um e-mail institucional antes de adicioná-lo ao site;
-- definir provedor/preview e autorização de deploy;
 - preservar os registros DNS e de e-mail existentes ao publicar.
 
-Essas pendências não bloqueiam a revisão local, mas bloqueiam a promoção segura para produção.
+A autorização de deploy foi fornecida e o provedor Vercel já está conectado ao repositório oficial. A autorização de uso das capturas ATA continua sendo uma confirmação comercial externa à implementação.

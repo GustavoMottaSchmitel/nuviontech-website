@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next"
 import localFont from "next/font/local"
 import SiteHeader from "@/components/SiteHeader"
 import SiteFooter from "@/components/SiteFooter"
-import { INSTAGRAM_URL, SITE_URL } from "@/data/site"
+import MotionController from "@/components/MotionController"
+import { CONTACT_EMAIL, INSTAGRAM_URL, SITE_URL } from "@/data/site"
 import "./globals.css"
 
 const archivo = localFont({
@@ -87,6 +88,7 @@ const structuredData = {
       url: SITE_URL,
       logo: `${SITE_URL}/brand/nuvion-symbol.png`,
       founder: { "@type": "Person", name: "Gustavo Motta" },
+      email: CONTACT_EMAIL,
       sameAs: [INSTAGRAM_URL],
       areaServed: { "@type": "Country", name: "Brasil" },
     },
@@ -107,6 +109,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <a className="skip-link" href="#conteudo">Ir para o conteúdo</a>
         <SiteHeader />
+        <MotionController />
         {children}
         <SiteFooter />
         <script

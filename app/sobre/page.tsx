@@ -25,7 +25,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="about-portrait">
-            <Image src="/founder/gustavo-motta-portrait.webp" alt="Gustavo Motta" fill priority sizes="(max-width: 860px) 80vw, 36vw" />
+            <Image src="/founder/gustavo-motta-centered.webp" alt="Gustavo Motta" fill priority sizes="(max-width: 860px) 80vw, 36vw" />
           </div>
         </div>
       </section>

@@ -14,6 +14,8 @@
 /coverage
 /qa/*.png
 /qa/responsive/*.png
+/qa/**/*.png
+/qa/**/*.log
 /.devserver.log
 /.prodserver.log
 /.prodserver.log.err

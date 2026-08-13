@@ -48,7 +48,7 @@ export default function Home() {
         <div className="shell">
           <div className="section-heading">
             <div>
-              <p className="kicker">Projetos selecionados</p>
+              <p className="kicker">Projetos selecionados · veja as páginas em movimento</p>
               <h2 id="projects-title">Projetos no ar.<br />Decisões que você pode explorar.</h2>
             </div>
             <p>
@@ -57,7 +57,7 @@ export default function Home() {
             </p>
           </div>
           <div className="case-stack">
-            {cases.map((item, index) => <CaseCard key={item.slug} item={item} priority={index === 0} />)}
+            {cases.map((item) => <CaseCard key={item.slug} item={item} />)}
           </div>
           <div className="section-end-link">
             <Link className="button button--outline" href="/projetos"><span>Explorar todos os projetos</span><ArrowIcon /></Link>
@@ -137,7 +137,7 @@ export default function Home() {
         <div className="shell founder__grid">
           <div className="founder__portrait">
             <div className="founder__frame">
-              <Image src="/founder/gustavo-motta-portrait.webp" alt="Gustavo Motta, fundador da NuvionTech" fill sizes="(max-width: 760px) 90vw, 42vw" />
+              <Image src="/founder/gustavo-motta-centered.webp" alt="Gustavo Motta, fundador da NuvionTech" fill sizes="(max-width: 760px) 90vw, 42vw" />
             </div>
             <span className="founder__stamp">GUSTAVO<br />MOTTA</span>
           </div>

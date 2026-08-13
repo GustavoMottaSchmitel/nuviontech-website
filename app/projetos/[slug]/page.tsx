@@ -45,7 +45,16 @@ export default async function CasePage({ params }: Props) {
               {item.scope.map((scope) => <li key={scope}>{scope}</li>)}
             </ul>
           </div>
-          <DeviceScene desktop={item.desktopPreview} mobile={item.mobilePreview} alt={`Landing page ${item.name}`} />
+          <DeviceScene
+            desktop={item.desktopPreview}
+            mobile={item.mobilePreview}
+            desktopFull={item.desktopFull}
+            mobileFull={item.mobileFull}
+            desktopHeader={item.desktopHeader}
+            mobileHeader={item.mobileHeader}
+            alt={`Landing page ${item.name}`}
+            priority
+          />
         </div>
       </section>
 
@@ -65,15 +74,19 @@ export default async function CasePage({ params }: Props) {
       </section>
 
       <section className="full-page-showcase" aria-label={`Detalhes da experiência ${item.name}`}>
-        <div className="shell full-page-showcase__devices">
+        <div className="shell full-page-showcase__devices" data-project-motion>
           <div className="full-page-monitor">
             <div>
-              <Image src={item.desktopPreview} alt={`Página ${item.name} no desktop`} fill priority sizes="(max-width: 1200px) 90vw, 1100px" />
+              <Image className="project-poster" src={item.desktopPreview} alt={`Página ${item.name} no desktop`} fill sizes="(max-width: 1200px) 90vw, 1100px" />
+              <Image className="project-scroll project-scroll--desktop" src={item.desktopFull} alt="" fill sizes="(max-width: 1200px) 90vw, 1100px" aria-hidden="true" />
+              <Image className="project-fixed-header project-fixed-header--desktop" src={item.desktopHeader} alt="" width={1440} height={86} sizes="(max-width:1200px) 90vw, 1100px" aria-hidden="true" />
             </div>
           </div>
           <div className="full-page-phone">
             <div>
-              <Image src={item.mobilePreview} alt={`Página ${item.name} no celular`} fill priority sizes="190px" />
+              <Image className="project-poster" src={item.mobilePreview} alt={`Página ${item.name} no celular`} fill sizes="190px" />
+              <Image className="project-scroll project-scroll--mobile" src={item.mobileFull} alt="" fill sizes="190px" aria-hidden="true" />
+              <Image className="project-fixed-header project-fixed-header--mobile" src={item.mobileHeader} alt="" width={390} height={74} sizes="190px" aria-hidden="true" />
             </div>
           </div>
         </div>

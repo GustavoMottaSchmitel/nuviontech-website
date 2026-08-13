@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import ArrowIcon from "@/components/ArrowIcon"
-import { FOUNDER_URL, INSTAGRAM_URL, whatsappUrl } from "@/data/site"
+import { CONTACT_EMAIL, FOUNDER_URL, INSTAGRAM_URL, whatsappUrl } from "@/data/site"
 
 export const metadata: Metadata = {
   title: "Contato",
@@ -29,6 +29,9 @@ export default function ContactPage() {
             <h2 style={{ fontSize: "clamp(45px,6vw,80px)", letterSpacing: "-.065em", lineHeight: ".94" }}>Escolha o canal mais simples para você.</h2>
           </div>
           <div className="contact-options">
+            <a className="contact-option" href={`mailto:${CONTACT_EMAIL}`}>
+              <div><h3>E-mail</h3><p>{CONTACT_EMAIL}</p></div><ArrowIcon diagonal />
+            </a>
             <a className="contact-option" href={whatsappUrl("página de contato")} target="_blank" rel="noopener noreferrer">
               <div><h3>WhatsApp</h3><p>Fale diretamente sobre o projeto</p></div><ArrowIcon diagonal />
             </a>
